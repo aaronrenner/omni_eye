@@ -10,6 +10,8 @@ defmodule Eye.JPEGStreamer do
   def init(opts), do: opts
 
   def call(conn, _opts) do
+    Eye.Camera.configure()
+
     conn
     |> put_resp_header("Age", "0")
     |> put_resp_header("Cache-Control", "no-cache, private")

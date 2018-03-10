@@ -5,6 +5,7 @@ defmodule Eye.Camera do
     Logger.info("Configuring camera")
     Picam.set_quality(10)
     Picam.set_size(1280, 720)
+    Picam.set_rotation(270)
     Picam.set_fps(30)
   end
 
