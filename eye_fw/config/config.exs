@@ -25,8 +25,16 @@ config :nerves_firmware_ssh,
     File.read!(Path.join([System.user_home!(), ".ssh", "id_rsa.pub"]))
   ]
 
-config :nerves_init_gadget,
-  address_method: :static
+config :nerves_init_gadget, address_method: :static
+
+config :eye, port: 80
+config :picam, camera: Picam.Camera
+
+config :logger, level: :info, utc_log: true
+
+config :logger, :console,
+  level: :info,
+  format: "$dateT$time [$level] $message\n"
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
