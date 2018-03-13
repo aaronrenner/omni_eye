@@ -5,5 +5,7 @@
   "mime": {:hex, :mime, "1.2.0", "78adaa84832b3680de06f88f0997e3ead3b451a440d183d688085be2d709b534", [:mix], [], "hexpm"},
   "picam": {:hex, :picam, "0.2.0", "bf29acc078dbce857c481834e07a251bc91145ca99ca31b9f1ff53f8bdd61b13", [:make, :mix], [{:elixir_make, "~> 0.4", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm"},
   "plug": {:hex, :plug, "1.4.5", "7b13869283fff6b8b21b84b8735326cc012c5eef8607095dc6ee24bd0a273d8e", [:mix], [{:cowboy, "~> 1.0.1 or ~> 1.1", [hex: :cowboy, repo: "hexpm", optional: true]}, {:mime, "~> 1.0", [hex: :mime, repo: "hexpm", optional: false]}], "hexpm"},
+  "poison": {:hex, :poison, "3.1.0", "d9eb636610e096f86f25d9a46f35a9facac35609a7591b3be3326e99a0484665", [:mix], [], "hexpm"},
   "ranch": {:hex, :ranch, "1.4.0", "10272f95da79340fa7e8774ba7930b901713d272905d0012b06ca6d994f8826b", [:rebar3], [], "hexpm"},
+  "zbar": {:hex, :zbar, "0.1.0", "acd57cd995f24ff587c84b8baf710477b9242371ebb4de52f71f825c96f0c706", [:make, :mix], [{:elixir_make, "~> 0.4", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm"},
 }

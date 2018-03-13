@@ -23,8 +23,10 @@ defmodule Eye.MixProject do
   defp deps do
     [
       {:picam, "~> 0.2.0"},
+      {:zbar, "~> 0.1.0"},
       {:cowboy, "~> 1.0.0"},
-      {:plug, "~> 1.0"}
+      {:plug, "~> 1.0"},
+      {:poison, "~> 3.1.0"}
     ]
   end
 end
