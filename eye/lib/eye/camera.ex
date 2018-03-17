@@ -1,15 +1,29 @@
 defmodule Eye.Camera do
-  require Logger
+  @moduledoc """
+  Public API for working with the camera
+  """
+  alias Eye.Configuration
+  alias __MODULE__.Server
 
-  def configure do
-    Logger.info("Configuring camera")
-    Picam.set_quality(10)
-    Picam.set_size(1280, 720)
-    Picam.set_rotation(270)
-    Picam.set_fps(30)
+  @doc false
+  defdelegate child_spec(opts), to: Server
+
+  @spec get_config :: Configuration.t
+  def get_config do
+    GenServer.call(Server, :get_config)
   end
 
-  def next_frame do
-    Picam.next_frame()
+  @spec set_size(non_neg_integer(), non_neg_integer()) ::
+    :ok | {:error, :invalid_size}
+  def set_size(width, height) do
+    GenServer.call(Server, {:set_size, width, height})
   end
+
+  @spec set_rotation(non_neg_integer()) ::
+    :ok | {:error, :invalid_rotation_angle}
+  def set_rotation(angle) do
+    GenServer.call(Server, {:set_rotation, angle})
+  end
+
+  defdelegate next_frame(), to: Picam
 end

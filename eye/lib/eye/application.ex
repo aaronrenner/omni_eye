@@ -11,13 +11,14 @@ defmodule Eye.Application do
 
     children = [
       child_spec_no_args(picam_camera),
+      Eye.Camera,
       Eye.BarcodeScanner,
       Plug.Adapters.Cowboy.child_spec(:http, Eye.Router, [], [port: port])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Eye.Supervisor]
+    opts = [strategy: :one_for_all, name: Eye.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
