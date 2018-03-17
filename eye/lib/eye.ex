@@ -1,18 +1,5 @@
 defmodule Eye do
   @moduledoc """
-  Documentation for Eye.
+  Primary API for `Eye` application
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Eye.hello
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end
