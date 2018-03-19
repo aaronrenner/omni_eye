@@ -1,6 +1,17 @@
 defmodule Eye.Router do
   use Plug.Router
 
+  plug Plug.Logger
+  plug Plug.Parsers,
+    parsers: [
+      :urlencoded,
+      :multipart,
+      :json,
+      Absinthe.Plug.Parser
+    ],
+    pass: "*/*",
+    json_decoder: Poison
+
   plug :match
   plug :dispatch
 
@@ -52,6 +63,17 @@ defmodule Eye.Router do
   end
 
   defp format_point({x, y}), do: %{x: x, y: y}
+
+  forward "/graphql",
+    to: Absinthe.Plug,
+    init_opts: [schema: Eye.Schema]
+
+  forward "/graphiql",
+    to: Absinthe.Plug.GraphiQL,
+    init_opts: [
+      schema: Eye.Schema,
+      interface: :simple
+    ]
 
   match _ do
     send_resp(conn, 404, "Oops. Try /")
