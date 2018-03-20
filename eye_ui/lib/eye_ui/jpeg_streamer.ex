@@ -1,4 +1,4 @@
-defmodule Eye.JPEGStreamer do
+defmodule EyeUi.JPEGStreamer do
   @moduledoc """
   Plug for streaming an image
   """
